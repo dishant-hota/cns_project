@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTD + Honey Encryption Simulation</title>
+    <!-- 1. Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 2. Load Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-white">Honey Encryption + Moving Target Defense</h1>
+            <p class="text-lg text-gray-400 mt-2">A Visual Simulation</p>
+        </header>
+
+        <!-- Control Buttons -->
+        <div class="flex justify-center gap-4 mb-8">
+            <button id="start-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                Start Simulation
+            </button>
+            <button id="reset-btn" class="px-6 py-3 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
+                Reset
+            </button>
+        </div>
+
+        <!-- Simulation Panels -->
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Panel 1: Moving Target Defense -->
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">Phase 1: Moving Target Defense (MTD)</h2>
+                
+                <div class="mb-4">
+                    <h3 class="font-semibold text-lg">MTD Server Status:</h3>
+                    <p id="mtd-status" class="text-gray-300">Idle. Waiting to start...</p>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="font-semibold text-lg mb-2">Network Ports:</h3>
+                    <div id="ports-container" class="flex flex-wrap">
+                        <!-- Ports will be dynamically generated here -->
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg">Attacker Status:</h3>
+                    <p id="attacker-mtd-status" class="text-gray-300">Idle.</p>
+                </div>
+            </div>
+
+            <!-- Panel 2: Honey Encryption -->
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">Phase 2: Honey Encryption (HE)</h2>
+                
+                <!-- This is the ALARM box, hidden by default -->
+                <div id="alarm-box" class="hidden mb-4 p-4 bg-red-600 border border-red-400 text-white text-center rounded-lg font-bold animate-pulse">
+                    !!! SYSTEM ALARM TRIGGERED !!!
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="font-semibold text-lg">Stolen Data:</h3>
+                    <p id="stolen-data" class="text-gray-400 bg-gray-900 p-2 rounded break-all font-mono">[No data stolen yet]</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h3 class="font-semibold text-lg">Attacker's Key Guess:</h3>
+                    <p id="key-guess" class="text-gray-400 bg-gray-900 p-2 rounded font-mono">[Attacker has not guessed]</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg">Decrypted Result:</h3>
+                    <p id="decrypted-result" class="text-gray-400 bg-gray-900 p-2 rounded font-mono">[...waiting for decryption...]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simulation Log -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold mb-4">Simulation Log</h2>
+            <div id="log-box">
+                <p class="text-gray-500">Click "Start Simulation" to begin...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. The JavaScript Logic -->
+    <script src="honey_encryption.js"></script>
+</body>
+</html>
+
